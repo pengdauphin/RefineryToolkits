@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Autodesk.RefineryToolkits.SpacePlanning.Generate
 {
-    public static class DeskLayout
+    public static class TentLayout
     {
         /// <summary>
         /// Creates a layout of desks on a surface based on desk dimensions
@@ -18,9 +18,13 @@ namespace Autodesk.RefineryToolkits.SpacePlanning.Generate
         /// <param name="backToBack">the distance in mm between two desks where the people sat at them are back to back</param>
         /// <search></search>
         [NodeCategory("Create")]
-        public static object Create(Surface surface, double deskWidth = 1400, double deskDepth = 800, double backToBack = 2200)
+        public static object Create(
+            Surface surface,
+            double deskWidth = 1400,
+            double deskDepth = 800,
+            double backToBack = 2200)
         {
-            Surface boundingSrf = surface.BoundingSurface(); //
+            Surface boundingSrf = surface.BoundingSurface();
             List<Curve> perimCrvs = boundingSrf.PerimeterCurves().ToList();
 
             Curve max;
